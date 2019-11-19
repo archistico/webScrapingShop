@@ -4,7 +4,10 @@ require __DIR__ . '/vendor/autoload.php';
 use PHPHtmlParser\Dom;
 
 $dom = new Dom;
-$dom->loadFromUrl('https://www.amazon.it/Nuovo-Apple-iPad-Wi-Fi-128GB/dp/B07XSCBJV2/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=18ALA17ODZJWD&keywords=ipad+2019+128gb&qid=1574157003&sprefix=ipad+2019+128%2Caps%2C196&sr=8-1');
+
+$url_papera = 'https://www.amazon.it/Plush-Company-07807-Mattia-Papero/dp/B01CPH79J0/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=papera&qid=1574158639&sr=8-1';
+$url_ipad = 'https://www.amazon.it/Nuovo-Apple-iPad-Wi-Fi-128GB/dp/B07XSCBJV2/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=18ALA17ODZJWD&keywords=ipad+2019+128gb&qid=1574157003&sprefix=ipad+2019+128%2Caps%2C196&sr=8-1';
+$dom->loadFromUrl($url_ipad);
 $html = $dom->outerHtml;
 
 $span_array = $dom->find('span');
