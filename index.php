@@ -39,7 +39,7 @@ function PurgeString($str) {
     }
 
     $res = implode("", $array_res);
-    return trim($res);
+    return trim(htmlspecialchars_decode ($res));
 }
 
 function JoinString($array, $min, $max) {
@@ -115,3 +115,28 @@ echo "Prezzo scontato: ".EchoPrice($prezzo_scontato)."\n";
 echo "-------------------------------------------------------------------------------\n";
 
 // ##### FINE UNIEURO ######
+
+// ##### MEDIAWORLD ######
+
+$dom = new Dom;
+
+$url_ipad = 'https://www.mediaworld.it/product/p-112285/apple-ipad-102-2019-wi-fi-128gb-grigio-siderale';
+$dom->loadFromUrl($url_ipad);
+$html = $dom->outerHtml;
+
+$span_array = $dom->find('span');
+$h1_array = $dom->find('h1');
+
+/*
+EchoArray($span_array);
+*/
+
+$prodotto = strtoupper(PurgeString($h1_array[0]->text));
+$prezzo_scontato = (float) Purge($span_array[243]->text);
+
+echo "MEDIAWORLD\n";
+echo $prodotto . "\n";
+echo "Prezzo scontato: ".EchoPrice($prezzo_scontato)."\n";
+echo "-------------------------------------------------------------------------------\n";
+
+// ##### FINE MEDIAWORLD ######
