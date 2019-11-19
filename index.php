@@ -8,9 +8,10 @@ $dom->loadFromUrl('https://www.amazon.it/Nuovo-Apple-iPad-Wi-Fi-128GB/dp/B07XSCB
 $html = $dom->outerHtml;
 
 $span_array = $dom->find('span');
+
 /*
 $id = 0;
-foreach($a as $el) {
+foreach($span_array as $el) {
     echo $id." ".$el->text."\n"; 
     $id++;
 }
@@ -37,8 +38,12 @@ function Purge($str) {
     return $res;
 }
 
+$prodotto = strtoupper(trim($span_array[99]->text));
 $prezzo_pieno = (float) Purge($span_array[108]->text);
 $prezzo_scontato = (float) Purge($span_array[110]->text);
 $sconto = $prezzo_pieno - $prezzo_scontato;
-echo "AMAZON >>> Prezzo pieno: ".$prezzo_pieno." € | Prezzo scontato: ".$prezzo_scontato." € | Sconto: ".$sconto." €";
-
+echo "-------------------------------------------------------------------------------\n";
+echo "AMAZON\n";
+echo $prodotto . "\n";
+echo "Prezzo pieno: ".$prezzo_pieno." € | Prezzo scontato: ".$prezzo_scontato." € | Sconto: ".$sconto." €\n";
+echo "-------------------------------------------------------------------------------\n";
