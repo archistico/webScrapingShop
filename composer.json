@@ -1,0 +1,16 @@
+{
+    "name": "archistico/scraping",
+    "require": {
+        "paquettg/php-html-parser": "^2.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "archistico",
+            "email": "info@archistico.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"": ""}
+    }
+}
